@@ -83,8 +83,8 @@ const getAllUser = () => {
     return query = ` SELECT  * FROM user_table	`  
 }
  
-const get_data =(key,start_time,end_time,tag,Lbeacon,count_limit,sort_type) =>{ 
- 
+const get_data =(key,start_time,end_time,tag,Lbeacon,count_limit,sort_type) =>{  
+   
     let text = 
     `
     WITH ranges AS (
@@ -140,7 +140,7 @@ const get_data =(key,start_time,end_time,tag,Lbeacon,count_limit,sort_type) =>{
         MIN(groups.mac_address::TEXT) AS mac_address, 
         MIN(object_table.name) AS name,
         MIN(groups.area_id) AS area_id,
-        MIN(area_table.readable_name) AS area_name,
+        MIN(area_table.name) AS area_name,
         MIN(groups.uuid::TEXT) AS uuid,
         MIN(Lbeacon_table.description) AS beacon_description,
         MIN(groups.battery_voltage) AS battery_voltage,

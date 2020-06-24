@@ -35,7 +35,7 @@ const get_api_key = (request, response) => {
             pool.query(queryType.confirmValidation(getUserName))
             .then(res => {   
                     console.log(`confirm validation succeed`)  
-                    const hash = bcrypt.hashSync(username, saltRounds); 
+                    const hash = bcrypt.hashSync(username, saltRounds);    
                     pool.query(queryType.setKey(res.rows[0].user_id,getUserName,hash)) 
                         .then(res => {  
                             response.json(error_code.get_key_success(hash,moment().add(30, 'm').locale('en').format('LT')))
@@ -185,7 +185,7 @@ async function get_data(key,start_time,end_time,tag,Lbeacon,count_limit,sort_typ
         .then(res => {      
             console.log(`get_data success`)   
             res.rows.map(item=>{
-               item.area_name = tw[item.area_name.toUpperCase().replace(/ /g,'_')] 
+               tw[item.area_name.toUpperCase().replace(/ /g,'_')] == undefined ?null : item.area_name = tw[item.area_name.toUpperCase().replace(/ /g,'_')]
                item.duration.hours == undefined ? item.duration.hours  =0 : null
                item.duration.minutes == undefined ? item.duration.minutes  =0 : null
                item.duration.seconds == undefined ? item.duration.seconds  =0 : null
