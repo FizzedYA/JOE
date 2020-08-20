@@ -44,7 +44,7 @@
     "@react-pdf/renderer": "^1.6.8",
     "antd": "^4.1.1",
     "babel-polyfill": "^6.26.0",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "body-scroll-lock": "^2.6.4",
     "bootstrap": "^4.4.1",
     "child_process": "^1.0.2",
